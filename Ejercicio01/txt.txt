@@ -1,0 +1,54 @@
+﻿ENTIDADES
+
+	clsPersona
+		- nombre : String
+		- apellidos : String
+		- fechaNac : Datetime
+		- foto : String
+		- direccion : String
+		- telefono : int
+-----------------------------------------------------
+DAL
+	ClsListadoDal:
+		- listaPersonas : List<clsPersona>
+
+-----------------------------------------------------
+BL
+	ClsListadoBL:
+		- listaPersonas : List<clsPersona>
+	
+-----------------------------------------------------
+UI
+	VM
+		ListaPersonasVM : INotifyPropoertyChanged
+			- personaSleccionada : clsPersona
+			- listaPersonas : ObservableCollection<clsPersona>
+			- busqueda : String
+			- filtrarCommand : DelegateCommand
+			- eliminarCommand : DelegateCommand
+
+			public ListaPersonasVM()
+        {
+            listaPersonas = new ObservableCollection<clsPersona>(ClsListadoBL.listadoPersonas());
+
+            filtrarCommand = new DelegateCommand(FiltrarCommand_Executed,
+                FiltrarCommand_CanExecute);
+
+            eliminarCommand = new DelegateCommand(EliminarCommand_Executed,
+                EliminarCommand_CanExecute);
+        }
+
+		void FiltrarCommand_Executed()
+
+		void FilterList()
+
+		bool FiltrarCommand_CanExecute()
+
+		void EliminarCommand_Executed()
+
+		async void EliminarPersona()
+
+		bool EliminarCommand_CanExecute()
+
+
+			
